@@ -2,5 +2,11 @@ sudo: required
 language: java
 jdk: openjdk8
 
+services:
+- docker
+
 script:
 - "./mvnw clean install -B"
+
+after_success:
+- docker build -t xmrcmx/royalcicd:latest .

@@ -12,4 +12,8 @@ after_success:
 - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 - docker build -t xmrcmx/royalcicd:v1 .
 - docker push xmrcmx/royalcicd:v1
-# asdasds
+
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API_KEY
+  app: royalcicd

@@ -9,4 +9,6 @@ script:
 - "./mvnw clean install -B"
 
 after_success:
-- docker build -t xmrcmx/royalcicd:latest .
+- docker login $DOCKER_USERNAME $DOCKER_PASSWORD
+- docker build -t xmrcmx/royalcicd:v1 .
+- docker push xmrcmx/royalcicd:v1
